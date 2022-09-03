@@ -8,23 +8,23 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     a=os.environ['Authorization']
-    try:
-        f = open("student.csv", "r")
-        for line in f.readlines():
-            print(line)
-            a = line.split(",")
-            if(a[0]=="21005"):
-                return a[4]
-        f.close()
-    except Exception:
-        return "Could not read to file"
-    
+#    try:
+#        f = open("student.csv", "r")
+#        for line in f.readlines():
+#            print(line)
+#            a = line.split(",")
+#            if(a[0]=="21005"):
+#                return a[4]
+#        f.close()
+#    except Exception:
+#        return "Could not read to file"
+   
     return "นายอาคม สุวรรณประเสริฐ เลขที่ 0 ชั้น ม.4/"
 
 @app.route("/webhook", methods=['POST'])
 def webhook():
     if request.method == 'POST':
-        return 200
+        return '',200
 
 @app.route('/callb', methods=['POST'])
 def callb():
